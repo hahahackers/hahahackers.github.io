@@ -70,7 +70,7 @@ export function Dashboard({ repos }: { repos: Awaited<ReturnType<Data>> }) {
                     <p
                       className="text-slate-400 absolute right-4 bottom-4 text-sm"
                       style={{
-                        color: (languageColors as Record<string, string>)[repo.language],
+                        color: (languageColors as Record<string, string>)[repo.language as string],
                       }}
                     >
                       {repo.language}
