@@ -1,14 +1,17 @@
 import { Octokit } from 'octokit';
 import { Dashboard } from '@/app/dashboard';
+// import testRepos from './test-repos.json';
 
 const octokit = new Octokit();
 
 async function getData() {
-  const response = await octokit.request('GET /orgs/{org}/repos', {
-    org: 'hahahackers',
-  });
+  // return testRepos;
 
-  return response.data;
+  return (
+    await octokit.request('GET /orgs/{org}/repos', {
+      org: 'hahahackers',
+    })
+  ).data;
 }
 
 export type Data = typeof getData;

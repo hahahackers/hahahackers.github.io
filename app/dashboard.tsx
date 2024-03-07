@@ -1,7 +1,7 @@
 import cx from 'clsx';
 import { useMemo } from 'react';
 import type { Data } from '@/app/page';
-// import repos from './test-repos.json';
+import languageColors from './language-colors.json';
 
 const ignoreTopics = ['unfinished', 'level-1'];
 
@@ -59,7 +59,7 @@ export function Dashboard({ repos }: { repos: Awaited<ReturnType<Data>> }) {
               {repos.map((repo) => (
                 <li key={repo.id}>
                   <a
-                    className="inline-flex flex-col justify-between bg-slate-200 rounded p-4 w-72 h-48 transition hover:bg-slate-300"
+                    className="relative inline-flex flex-col justify-between bg-slate-100 rounded p-4 w-72 h-48 transition hover:bg-slate-300"
                     href={repo.html_url}
                     target="_blank"
                   >
@@ -67,6 +67,14 @@ export function Dashboard({ repos }: { repos: Awaited<ReturnType<Data>> }) {
                       <h3 className="text-lg font-bold">{repo.name}</h3>
                       <p className="">{repo.description}</p>
                     </div>
+                    <p
+                      className="text-slate-400 absolute right-4 bottom-4 text-sm"
+                      style={{
+                        color: (languageColors as Record<string, string>)[repo.language],
+                      }}
+                    >
+                      {repo.language}
+                    </p>
                     {repo.open_issues_count! > 0 && (
                       <p className="text-sm">
                         Issues:
