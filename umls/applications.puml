@@ -1,0 +1,83 @@
+@startdot Applications
+digraph A {
+    rankdir="BT"
+    node [shape=circle
+          height=1.3 
+          fontname="Palatino Linotype"]
+
+    start [label="Applications" 
+           style=filled 
+           fillcolor="yellow"]
+
+    subgraph ConsoleApplications {
+      node [style=filled color=LimeGreen]
+
+      c1 [label="ASCII\nClock"]
+      c2 [label="LoC\nCalculator"]
+      c3 [label="VC/DTF TUI"]
+      start -> c1 -> c2 -> c3
+    }
+
+    subgraph SimpleApplications {
+      a1 [label="LiveScript\nPlayground"]
+      a2 [label="Number\nBase\nConverter"]
+      a3 [label="Temperature\nConverter"]
+      a4 [label="Age to\nSeconds"]
+      a5 [label="JSON/YAML\nConverter"]
+      a6 [label="Markdown\nEditor"]
+
+      start -> a1 -> a2 -> a3 -> a4 -> a5 -> a6
+    }
+
+    subgraph StandaloneApplications {
+      s1 [label="Typing\nTrainer"]
+      s2 [label="Simple PDF\nAnnotator"]
+      s3 [label="Lexigrind"]
+
+      start -> s1 -> s2 -> s3
+    }
+
+    subgraph "3DApplications" {
+      node [style=filled color=LightBlue]
+
+      m1 [label="3D Model\nViewer"]
+
+      a6 -> m1
+    }
+
+    subgraph "2DApplications" {
+      node [style=filled color=LightBlue]
+
+      d1 [label="Analog\nClock"]
+      d2 [label="History"]
+      d3 [label="Skill Tree\nEditor"]
+      d4 [label="Node Based\nEditor"]
+
+      start -> d1 -> d2 -> d3 -> d4
+    }
+
+    subgraph ColorApplications {
+      node [style=filled color=Pink]
+
+      l1 [label="HTML\nColors"]
+      l2 [label="Color\nConverter"]
+      l3 [label="Palette\nGenerator"]
+
+      start -> l1 -> l2 -> l3
+    }
+
+    subgraph ImageApplications {
+      node [style=filled color=LightBlue]
+
+      i1 [label="Image\nConverter"]
+      i2 [label="Simple\nImage\nEditor"]
+      i3 [label="Random\nImage\nGenerator"]
+      i4 [label="Avatar\nGenerator"]
+      i5 [label="Cellular\nTextures"]
+
+      start -> i1 -> i2 -> i3 -> i4 -> i5
+    }
+}
+
+@enddot
+
