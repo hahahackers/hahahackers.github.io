@@ -1,0 +1,109 @@
+@startdot Games
+digraph A {
+    rankdir="BT"
+    node [shape=circle 
+          height=1.2 
+          fontname="Palatino Linotype"]
+
+    start [label="Games" 
+           style=filled 
+           fillcolor="yellow"]
+
+
+    // -- Dice Games ------------------------
+    subgraph DiceGames {
+        node [style=filled color=khaki1]
+
+        dg1 [label="Dice\nRoller"]
+        dg2 [label="2D Dice\nRoller"]
+        dg4 [label="3D Dice\nRoller"]
+        dg3 [label="Yahtzee"]
+        start -> dg1 -> dg2 -> dg4
+        dg1 -> dg3
+    }
+
+    // -- Board Games -----------------------
+    subgraph BoardGames {
+        node [style=filled color=rosybrown1]
+
+        bg1 [label="TicTacToe"]
+        bg2 [label="Minesweeper"]
+        bg3 [label="Mastermind"]
+        bg4 [label="Checkers"]
+        bg5 [label="Chess"]
+        bg6 [label="Ricochet\nRobots"]
+        bg6 [label="Rush\Hour"]
+        start -> bg1 -> bg2 -> bg3 -> bg4 -> bg5 -> bg6
+    }
+
+    // -- Block Games -----------------------
+    subgraph BlockGames {
+        node [style=filled color=orangered]
+
+        lg1 [label="Color\nLines"]
+        lg2 [label="Tetris"]
+        lg3 [label="Match 3"]
+        lg1 -> lg2 -> lg3
+        bg2 -> lg1
+    }
+
+    // -- Dynamic Games ---------------------
+
+    ng1 [label="Snake"]
+    ng2 [label="Flappy\nBird"]
+    ng3 [label="Mini Golf"]
+    ng4 [label="Pac-Man"]
+    ng1a [label="Tron"]
+    ng1 -> ng2 -> ng3 -> ng4
+    ng1 -> ng1a
+    bg2 -> ng1
+
+    // -- Arcade Games ----------------------
+
+    ag1 [label="Classic\nPong"]
+    ag2 [label="Breakout"]
+    ag3 [label="Xonix"]
+    
+    ag1 -> {ag2 ag3}
+    ng4 -> ag1
+
+    subgraph Complex2DGames {
+        xg1 [label="Simple\nPlatformer"]
+        xg2 [label="Simple\nTop-down\nShooter"]
+        xg3 [label="Scorched\nEarth"]
+        xg4 [label="Tower\nDefence"]
+        bg5 -> xg1 -> xg2 -> xg3 -> xg4
+    }
+
+    subgraph NumberGames {
+        node [style=filled color=greenyellow]
+
+        mg1 [label="Sudoku"]
+    }
+
+    subgraph Idlers {
+        ig1 [label="Simple\nIdler"]
+    }
+
+    subgraph WordGames {
+        node [style=filled color=LimeGreen]
+        
+        wg1 [label="Hangman"]
+        wg2 [label="Wordle"]
+        wg3 [label="Balda"]
+        wg4 [label="Crossword\nMaker"]
+        wg5 [label="Scrabble"]
+        start -> wg1 -> wg2 -> wg4 -> wg6
+        wg1 -> wg3 -> wg5 -> wg6
+        wg2 -> mg1
+    }    
+    
+    subgraph CardGames {
+        cg1 [label="Matching\nPairs"]
+        cg2 [label="Shuffle\nCards"]
+        cg3 [label="Solitaire"]
+        start -> cg1 -> cg2 -> cg3
+    }
+}
+
+@enddot
