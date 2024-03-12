@@ -1,0 +1,46 @@
+@startdot Science
+digraph A {
+    rankdir="BT"
+    node [shape=circle 
+          height=1.2 
+          fontname="Palatino Linotype"]
+
+    start [label="Science" 
+           style=filled 
+           fillcolor="yellow"]
+
+    subgraph Algebra {
+        node [style=filled color=khaki1]
+
+        a1 [label="Dot & Cross\nCalculator"] // + Other calculators
+        a2 [label="Sequences"] // Fibonacci, Factorial, Triangles, Primes, Collatz
+        a3 [label="Ulam Spiral"]
+        a4 [label="Fractals"]
+        a5 [label="Graph\Calculator"]
+        a6 [label="Polygon\nTransforms"]
+        a7 [label="Solid\nFigure\nTransforms"]
+        a8 [label="Drawing\nCube"] // Rasterizer?
+        start -> a1 -> a2 -> a4 -> a6 -> a8
+        a1 -> a3 -> a5 -> a7 -> a8
+    }
+
+    subgraph Physics {
+      node [style=filled color=LimeGreen]
+
+      p1 [label="Double\nPendulum\nSimulation"]
+      start -> p1
+    }
+
+    subgraph Algorithms {
+      node [style=filled color=lightblue]
+
+      n1 [label="N-Queens"]
+      n2 [label="Knight's\nTour"]
+      n3 [label="Rucksack\nSorting"]
+      n4 [label="Pathfinding\nLabyrinths"]
+      start -> n1 -> n2 -> n3 -> n4
+    
+    }
+}
+
+@enddot
